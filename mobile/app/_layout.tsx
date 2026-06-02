@@ -5,6 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StyleSheet } from 'react-native';
 import { AuthProvider, useAuth } from '@/lib/auth';
+import { registerForPushNotifications } from '@/lib/notifications';
 import { colors } from '@/theme';
 
 SplashScreen.preventAutoHideAsync();
@@ -17,6 +18,13 @@ function RootNav() {
       SplashScreen.hideAsync();
     }
   }, [loading]);
+
+  // Register for push notifications when user is authenticated
+  useEffect(() => {
+    if (session?.user?.id) {
+      registerForPushNotifications(session.user.id).catch(() => {});
+    }
+  }, [session?.user?.id]);
 
   if (loading) return null;
 
