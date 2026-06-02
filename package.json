@@ -1,0 +1,50 @@
+{
+  "name": "mad-fresh",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@capacitor/cli": "^8.3.4",
+    "@capacitor/core": "^8.3.4",
+    "@capacitor/ios": "^8.3.4",
+    "@stripe/react-stripe-js": "^6.2.0",
+    "@stripe/stripe-js": "^9.2.0",
+    "@supabase/ssr": "^0.10.0",
+    "@supabase/supabase-js": "^2.101.1",
+    "@tiptap/extension-image": "^3.22.4",
+    "@tiptap/extension-link": "^3.22.4",
+    "@tiptap/extension-placeholder": "^3.22.4",
+    "@tiptap/extension-underline": "^3.22.4",
+    "@tiptap/pm": "^3.22.4",
+    "@tiptap/react": "^3.22.4",
+    "@tiptap/starter-kit": "^3.22.4",
+    "date-fns": "^4.1.0",
+    "dd-trace": "^5.102.0",
+    "isomorphic-dompurify": "^3.9.0",
+    "lucide-react": "^1.7.0",
+    "next": "^16.2.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "resend": "^6.12.0",
+    "sharp": "^0.34.5",
+    "stripe": "^21.0.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@tailwindcss/postcss": "^4.2.2",
+    "@types/node": "^20.19.37",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.2",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.33.1"
+  }
+}

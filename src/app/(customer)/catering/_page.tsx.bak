@@ -1,0 +1,5 @@
+// This file is intentionally empty.
+// The catering page lives at /(public)/catering/page.tsx
+// This file cannot be deleted due to FUSE mount constraints.
+// It has no default export, so Next.js will not treat it as a page.
+export {};

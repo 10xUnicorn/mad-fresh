@@ -1,0 +1,3 @@
+// Intentionally empty — menu lives at /(public)/menu
+// Cannot delete this file in current environment
+export {};

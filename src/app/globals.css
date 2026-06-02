@@ -1,0 +1,304 @@
+@import "tailwindcss";
+
+/* ═══ Mad Fresh Kitchen — Design Tokens ═══ */
+:root {
+  /* Brand Colors */
+  --mf-green: #449531;
+  --mf-accent: #75F663;
+  --mf-dark: #161616;
+  --mf-black: #0a0a0a;
+  --mf-white: #FFFFFF;
+  --mf-gray: #F7F7F7;
+  --mf-gray-med: #A0A0A0;
+  --mf-gray-dark: #333333;
+
+  /* Semantic Colors (Sage & Cream) */
+  --mf-surface: #ffffff;
+  --mf-surface-raised: #ffffff;
+  --mf-surface-hover: #f0ece3;
+  --mf-border: #ddd8cc;
+  --mf-border-hover: #c5c0b4;
+  --mf-text-primary: #1e2d18;
+  --mf-text-secondary: #4a5e3a;
+  --mf-text-muted: #7a7060;
+
+  /* Spacing Scale */
+  --mf-space-xs: 4px;
+  --mf-space-sm: 8px;
+  --mf-space-md: 16px;
+  --mf-space-lg: 24px;
+  --mf-space-xl: 32px;
+  --mf-space-2xl: 48px;
+
+  /* Radius Scale */
+  --mf-radius-sm: 8px;
+  --mf-radius-md: 12px;
+  --mf-radius-lg: 16px;
+  --mf-radius-xl: 20px;
+  --mf-radius-full: 9999px;
+
+  /* Shadows (Sage & Cream) */
+  --mf-shadow-sm: 0 2px 8px rgba(30,45,24,.06);
+  --mf-shadow-md: 0 4px 16px rgba(30,45,24,.08);
+  --mf-shadow-lg: 0 8px 32px rgba(30,45,24,.12);
+  --mf-shadow-glow: 0 0 20px rgba(61, 107, 42, 0.1);
+  --mf-shadow-glow-strong: 0 0 30px rgba(61, 107, 42, 0.15);
+
+  /* Transitions */
+  --mf-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --mf-duration-fast: 150ms;
+  --mf-duration-normal: 200ms;
+  --mf-duration-slow: 300ms;
+
+  /* ── Landing / public pages use Sage & Cream ── */
+  --sc-bg:           #faf8f3;
+  --sc-bg-alt:       #f2efe8;
+  --sc-surface:      #ffffff;
+  --sc-green:        #3d6b2a;
+  --sc-green-light:  #5aaa3c;
+  --sc-text:         #1e2d18;
+  --sc-text-mid:     #4a5e3a;
+  --sc-text-muted:   #7a7060;
+  --sc-text-faint:   #9a9080;
+  --sc-border:       #ddd8cc;
+  --sc-warm:         #fff8ee;
+  --sc-warm-border:  #f0ddb8;
+
+  /* App / dashboard — Sage & Cream */
+  --background: #faf8f3;
+  --foreground: #1e2d18;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-mf-green: #3d6b2a;
+  --color-mf-green-light: #5aaa3c;
+  --color-mf-accent: #75F663;
+  --color-mf-dark: #1e2d18;
+  --color-mf-gray: #f2efe8;
+  --color-mf-gray-med: #7a7060;
+  --color-sc-bg: #faf8f3;
+  --color-sc-bg-alt: #f2efe8;
+  --color-sc-border: #ddd8cc;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ═══ Base ═══ */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'League Spartan', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ═══ Scrollbar ═══ */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #3d6b2a;
+  border-radius: 3px;
+}
+
+/* ═══ Buttons ═══ */
+.btn-primary {
+  background: #3d6b2a;
+  color: #ffffff;
+  transition: all var(--mf-duration-normal) var(--mf-ease);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: #2f5720;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(61, 107, 42, 0.3);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(68, 149, 49, 0.2);
+}
+
+.btn-accent {
+  background: var(--mf-accent);
+  color: var(--mf-dark);
+  font-weight: 700;
+  transition: all var(--mf-duration-normal) var(--mf-ease);
+  cursor: pointer;
+}
+.btn-accent:hover {
+  background: #65e653;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(117, 246, 99, 0.25);
+}
+.btn-accent:active {
+  transform: translateY(0);
+}
+
+/* Ghost/outline button */
+.btn-ghost {
+  background: transparent;
+  color: var(--mf-text-secondary);
+  border: 1px solid var(--mf-border);
+  transition: all var(--mf-duration-normal) var(--mf-ease);
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  color: var(--mf-text-primary);
+  border-color: var(--mf-border-hover);
+  background: var(--mf-surface-hover);
+}
+
+/* ═══ Cards ═══ */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--mf-border);
+  transition: border-color var(--mf-duration-normal) var(--mf-ease),
+              box-shadow var(--mf-duration-normal) var(--mf-ease);
+}
+.glass:hover {
+  border-color: var(--mf-border-hover);
+}
+
+.mf-card {
+  background: var(--mf-surface-raised);
+  border: 1px solid var(--mf-border);
+  border-radius: var(--mf-radius-lg);
+  transition: all var(--mf-duration-normal) var(--mf-ease);
+}
+.mf-card:hover {
+  border-color: var(--mf-border-hover);
+  box-shadow: var(--mf-shadow-md);
+}
+
+/* ═══ Gradient Text ═══ */
+.gradient-text {
+  background: linear-gradient(135deg, #3d6b2a, #5aaa3c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══ Mad Fresh Animations ═══ */
+@keyframes mf-float-y {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(8deg); }
+}
+@keyframes mf-float-y-alt {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(-6deg); }
+}
+@keyframes mf-float-y-fast {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-25px) rotate(5deg); }
+}
+
+.mf-float-slow { animation: mf-float-y 8s ease-in-out infinite; }
+.mf-float-med { animation: mf-float-y-alt 6s ease-in-out infinite; }
+.mf-float-fast { animation: mf-float-y-fast 4.5s ease-in-out infinite; }
+
+/* Featured card glow */
+@keyframes mf-glow-pulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.45; }
+}
+.mf-featured-card {
+  background: #e9f0e4;
+  border: 1px solid rgba(61, 107, 42, 0.2);
+  backdrop-filter: blur(10px);
+}
+.mf-glow-rotate {
+  animation: mf-glow-pulse 3s ease-in-out infinite;
+}
+
+/* Flame wiggle */
+@keyframes mf-flame-wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-8deg) scale(1.1); }
+  75% { transform: rotate(8deg) scale(1.1); }
+}
+.mf-flame {
+  animation: mf-flame-wiggle 1.5s ease-in-out infinite;
+}
+
+/* Slide up entrance */
+@keyframes mf-slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.mf-slide-up {
+  animation: mf-slide-up 0.3s var(--mf-ease) forwards;
+}
+
+/* Fade in */
+@keyframes mf-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.mf-fade-in {
+  animation: mf-fade-in 0.2s var(--mf-ease) forwards;
+}
+
+/* Bottom sheet slide */
+@keyframes mf-sheet-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.mf-sheet-up {
+  animation: mf-sheet-up 0.35s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+@keyframes mf-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes mf-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* ═══ Scrollbar Utilities ═══ */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ═══ Mobile-first Touch Targets ═══ */
+@media (max-width: 768px) {
+  /* Ensure all interactive elements meet 44px minimum */
+  button, a, [role="button"], input[type="submit"] {
+    min-height: 44px;
+  }
+
+  /* Prevent iOS zoom on inputs */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* ═══ Safe Area (notch/home indicator) ═══ */
+.safe-area-padding {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+/* ═══ iOS Overscroll Background ═══ */
+/* All pages now use Sage & Cream */
+@supports (-webkit-touch-callout: none) {
+  body {
+    background: #faf8f3;
+  }
+}

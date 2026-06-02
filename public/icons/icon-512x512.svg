@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="102" fill="#0a0a0a"/>
+  <circle cx="256" cy="215.04" r="164" fill="#75F663"/>
+  <text x="256" y="320" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="192" font-weight="700" fill="white">MF</text>
+</svg>
