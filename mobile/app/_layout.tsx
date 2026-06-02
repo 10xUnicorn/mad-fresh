@@ -23,7 +23,13 @@ function RootNav() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       {session ? (
-        <Stack.Screen name="(tabs)" />
+        <>
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="item/[id]" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="cart" options={{ animation: 'slide_from_bottom' }} />
+          <Stack.Screen name="checkout" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="order-confirmation" options={{ animation: 'fade' }} />
+        </>
       ) : (
         <Stack.Screen name="(auth)" />
       )}
