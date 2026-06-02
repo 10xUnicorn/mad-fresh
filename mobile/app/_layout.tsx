@@ -29,6 +29,10 @@ function RootNav() {
           <Stack.Screen name="cart" options={{ animation: 'slide_from_bottom' }} />
           <Stack.Screen name="checkout" options={{ animation: 'slide_from_right' }} />
           <Stack.Screen name="order-confirmation" options={{ animation: 'fade' }} />
+          <Stack.Screen name="order/[id]" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="addresses" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="referrals" options={{ animation: 'slide_from_right' }} />
+          <Stack.Screen name="donations" options={{ animation: 'slide_from_right' }} />
         </>
       ) : (
         <Stack.Screen name="(auth)" />
