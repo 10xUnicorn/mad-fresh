@@ -1,6 +1,8 @@
 import { Tabs } from 'expo-router';
 import { Platform, Text, type ColorValue } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors } from '@/theme';
+import { useCart } from '@/lib/cart';
 
 function TabIcon({ symbol, color }: { symbol: string; color: ColorValue }) {
   return (
@@ -9,6 +11,9 @@ function TabIcon({ symbol, color }: { symbol: string; color: ColorValue }) {
 }
 
 export default function TabLayout() {
+  const insets = useSafeAreaInsets();
+  const cartCount = useCart((s) => s.getItemCount());
+
   return (
     <Tabs
       screenOptions={{
@@ -18,9 +23,14 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: colors.surface,
           borderTopColor: colors.border,
-          paddingBottom: Platform.OS === 'ios' ? 20 : 8,
+          paddingBottom: insets.bottom || 8,
           paddingTop: 8,
-          height: Platform.OS === 'ios' ? 88 : 64,
+          height: (insets.bottom || 8) + 56,
+          elevation: 8,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: -2 },
+          shadowOpacity: 0.05,
+          shadowRadius: 8,
         },
         tabBarLabelStyle: {
           fontSize: 11,
@@ -40,6 +50,8 @@ export default function TabLayout() {
         options={{
           title: 'Menu',
           tabBarIcon: ({ color }) => <TabIcon symbol="🍽" color={color} />,
+          tabBarBadge: cartCount > 0 ? cartCount : undefined,
+          tabBarBadgeStyle: { backgroundColor: colors.green },
         }}
       />
       <Tabs.Screen
