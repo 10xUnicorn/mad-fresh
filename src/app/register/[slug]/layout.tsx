@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "RSVP — Mad Fresh App Launch Party | May 28, 2026",
   description:
