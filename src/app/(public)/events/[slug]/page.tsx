@@ -214,12 +214,7 @@ export default function EventPage() {
   return (
     <main className="fixed inset-0 z-50 overflow-y-auto flex flex-col" style={{ marginTop: "-4rem" }}>
       {/* === BACKGROUND === */}
-      <div className="fixed inset-0 bg-gradient-to-br from-[#0a1f0a] via-[#0d2b0d] to-[#0a1a0a]" />
-
-      {/* Organic green glow spots */}
-      <div className="fixed top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#3d6b2a]/15 rounded-full blur-[120px]" />
-      <div className="fixed bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-[#3d6b2a]/8 rounded-full blur-[140px]" />
-      <div className="fixed top-[40%] left-[50%] -translate-x-1/2 w-[400px] h-[400px] bg-[#3d6b2a]/6 rounded-full blur-[100px]" />
+      <div className="fixed inset-0 bg-[#faf8f3]" />
 
       {/* Subtle grid texture */}
       <div
@@ -444,18 +439,18 @@ export default function EventPage() {
                       <label className="text-xs text-[#3d6b2a]/70 uppercase tracking-wider block mb-1.5 font-medium">Number of Guests *</label>
                       <select value={guests} onChange={(e) => setGuests(Number(e.target.value))} className="w-full bg-[#f2efe8] border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] focus:outline-none focus:ring-2 focus:ring-[#75F663]/50 focus:border-[#75F663]/30 transition-all">
                         {[1, 2, 3, 4, 5].map((n) => (
-                          <option key={n} value={n} className="bg-[#0d2b0d]">{n} {n === 1 ? "guest" : "guests"}</option>
+                          <option key={n} value={n} className="bg-white">{n} {n === 1 ? "guest" : "guests"}</option>
                         ))}
                       </select>
                     </div>
                     <div>
                       <label className="text-xs text-[#3d6b2a]/70 uppercase tracking-wider block mb-1.5 font-medium">Meal Preference</label>
                       <select value={mealPref} onChange={(e) => setMealPref(e.target.value as MealPref)} className="w-full bg-[#f2efe8] border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] focus:outline-none focus:ring-2 focus:ring-[#75F663]/50 focus:border-[#75F663]/30 transition-all">
-                        <option value="no_preference" className="bg-[#0d2b0d]">No preference</option>
-                        <option value="chicken" className="bg-[#0d2b0d]">Chicken</option>
-                        <option value="steak" className="bg-[#0d2b0d]">Steak</option>
-                        <option value="salmon" className="bg-[#0d2b0d]">Salmon</option>
-                        <option value="tofu" className="bg-[#0d2b0d]">Tofu (Vegan)</option>
+                        <option value="no_preference" className="bg-white">No preference</option>
+                        <option value="chicken" className="bg-white">Chicken</option>
+                        <option value="steak" className="bg-white">Steak</option>
+                        <option value="salmon" className="bg-white">Salmon</option>
+                        <option value="tofu" className="bg-white">Tofu (Vegan)</option>
                       </select>
                     </div>
                   </div>
@@ -481,7 +476,7 @@ export default function EventPage() {
                   <button
                     type="submit"
                     disabled={submitLoading}
-                    className="w-full font-bold py-4 rounded-full text-lg disabled:opacity-50 transition-all bg-gradient-to-r from-[#449531] to-[#75F663] text-[#0a1f0a] hover:shadow-lg hover:shadow-[#449531]/25 active:scale-[0.99]"
+                    className="w-full font-bold py-4 rounded-full text-lg disabled:opacity-50 transition-all bg-gradient-to-r from-[#449531] to-[#75F663] text-[#1e2d18] hover:shadow-lg hover:shadow-[#449531]/25 active:scale-[0.99]"
                   >
                     {submitLoading ? "Confirming..." : "Confirm My Free RSVP"}
                   </button>

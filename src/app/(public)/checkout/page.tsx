@@ -434,20 +434,10 @@ export default function CheckoutPage() {
     setCouponError(null);
   };
 
-  const floatingFoods = [
-    { emoji: "🥑", top: "5%", left: "3%", size: "text-4xl", delay: "0s", duration: "18s" },
-    { emoji: "🥦", top: "12%", right: "5%", size: "text-3xl", delay: "2s", duration: "22s" },
-    { emoji: "🍋", top: "25%", left: "6%", size: "text-2xl", delay: "4s", duration: "20s" },
-    { emoji: "🥬", top: "40%", right: "4%", size: "text-4xl", delay: "1s", duration: "24s" },
-    { emoji: "🫑", top: "55%", left: "2%", size: "text-3xl", delay: "3s", duration: "19s" },
-    { emoji: "🍃", top: "68%", right: "6%", size: "text-2xl", delay: "5s", duration: "21s" },
-    { emoji: "🥒", top: "78%", left: "5%", size: "text-3xl", delay: "2s", duration: "23s" },
-    { emoji: "🌿", top: "85%", right: "3%", size: "text-2xl", delay: "4s", duration: "17s" },
-  ];
 
   if (isLoading) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-[#0a1f0a] via-[#0d2b0d] to-[#0a1a0a] flex items-center justify-center">
+      <main className="min-h-screen bg-[#faf8f3] flex items-center justify-center">
         <Loader2 size={32} className="text-[#3d6b2a] animate-spin" />
       </main>
     );
@@ -455,13 +445,13 @@ export default function CheckoutPage() {
 
   if (cart.length === 0 && step < 4) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-[#0a1f0a] via-[#0d2b0d] to-[#0a1a0a] flex items-center justify-center px-4">
+      <main className="min-h-screen bg-[#faf8f3] flex items-center justify-center px-4">
         <div className="text-center space-y-6 max-w-md">
           <h1 className="text-3xl font-bold text-[#1e2d18]">Your cart is empty</h1>
           <p className="text-[#7a7060]">Add items to your cart before checking out.</p>
           <Link
             href="/menu"
-            className="bg-[#3d6b2a] hover:bg-[#5aaa3c] text-white font-bold rounded-full transition-colors inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold min-h-[44px]"
+            className="bg-[#3d6b2a] hover:bg-[#5aaa3c] text-white font-bold rounded-full transition-colors inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold min-h-[44px]"
           >
             <ArrowLeft size={18} />
             Back to Menu
@@ -472,48 +462,8 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="min-h-screen relative overflow-hidden">
-      {/* Green gradient background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-[#0a1f0a] via-[#0d2b0d] to-[#0a1a0a]" />
-      <div className="fixed top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#3d6b2a]/15 rounded-full blur-[120px]" />
-      <div className="fixed bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-[#3d6b2a]/8 rounded-full blur-[140px]" />
-
-      {/* Subtle grid texture */}
-      <div
-        className="fixed inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: "linear-gradient(rgba(117,246,99,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(117,246,99,0.3) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* Floating food emoji */}
-      {floatingFoods.map((food, i) => (
-        <div
-          key={i}
-          className={`fixed ${food.size} opacity-[0.12] pointer-events-none select-none`}
-          style={{
-            top: food.top,
-            left: food.left,
-            right: food.right,
-            animation: `floatFood ${food.duration} ease-in-out ${food.delay} infinite`,
-          } as React.CSSProperties}
-        >
-          {food.emoji}
-        </div>
-      ))}
-
-      <style jsx>{`
-        @keyframes floatFood {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          25% { transform: translateY(-15px) rotate(5deg); }
-          50% { transform: translateY(-8px) rotate(-3deg); }
-          75% { transform: translateY(-20px) rotate(4deg); }
-        }
-      `}</style>
-
-      <div className="relative z-10 py-12">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <main className="min-h-screen bg-[#faf8f3]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {step < 4 && (
           <div className="mb-12">
             <div className="flex items-center justify-between mb-8">
@@ -528,8 +478,8 @@ export default function CheckoutPage() {
                     <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition ${
                         step >= s.num
-                          ? "bg-[#3d6b2a] text-black"
-                          : "bg-white/10 text-[#7a7060] border border-[#ddd8cc]"
+                          ? "bg-[#3d6b2a] text-white"
+                          : "bg-[#f2efe8] text-[#7a7060] border border-[#ddd8cc]"
                       }`}
                     >
                       {step > s.num ? <CheckCircle2 size={24} /> : s.num}
@@ -537,7 +487,7 @@ export default function CheckoutPage() {
                     <p className="text-xs text-[#7a7060] mt-2">{s.label}</p>
                   </div>
                   {i < 3 && (
-                    <div className={`flex-1 h-0.5 mx-4 ${step > s.num ? "bg-[#3d6b2a]" : "bg-white/10"}`} />
+                    <div className={`flex-1 h-0.5 mx-4 ${step > s.num ? "bg-[#3d6b2a]" : "bg-[#f2efe8]"}`} />
                   )}
                 </div>
               ))}
@@ -557,12 +507,12 @@ export default function CheckoutPage() {
               <div>
                 <label className="block text-sm font-semibold text-[#4a5e3a] mb-2">First Name</label>
                 <input type="text" value={formData.firstName} onChange={(e) => handleFormChange("firstName", e.target.value)}
-                  className="w-full bg-white/5 border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="John" />
+                  className="w-full bg-white border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-[#9a9080] focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="John" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#4a5e3a] mb-2">Last Name</label>
                 <input type="text" value={formData.lastName} onChange={(e) => handleFormChange("lastName", e.target.value)}
-                  className="w-full bg-white/5 border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="Doe" />
+                  className="w-full bg-white border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-[#9a9080] focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="Doe" />
               </div>
             </div>
 
@@ -570,12 +520,12 @@ export default function CheckoutPage() {
               <div>
                 <label className="block text-sm font-semibold text-[#4a5e3a] mb-2">Email</label>
                 <input type="email" value={formData.email} onChange={(e) => handleFormChange("email", e.target.value)}
-                  className="w-full bg-white/5 border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="you@example.com" />
+                  className="w-full bg-white border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-[#9a9080] focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="you@example.com" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#4a5e3a] mb-2">Phone</label>
                 <input type="tel" value={formData.phone} onChange={(e) => handleFormChange("phone", e.target.value)}
-                  className="w-full bg-white/5 border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="(555) 123-4567" />
+                  className="w-full bg-white border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-[#9a9080] focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="(555) 123-4567" />
               </div>
             </div>
 
@@ -585,30 +535,30 @@ export default function CheckoutPage() {
                 <div>
                   <label className="block text-sm font-semibold text-[#4a5e3a] mb-2">Street Address</label>
                   <input type="text" value={formData.streetAddress} onChange={(e) => handleFormChange("streetAddress", e.target.value)}
-                    className="w-full bg-white/5 border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="123 Main St" />
+                    className="w-full bg-white border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-[#9a9080] focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="123 Main St" />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-[#4a5e3a] mb-2">Apt/Suite</label>
                     <input type="text" value={formData.apt} onChange={(e) => handleFormChange("apt", e.target.value)}
-                      className="w-full bg-white/5 border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="Apt 4B" />
+                      className="w-full bg-white border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-[#9a9080] focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="Apt 4B" />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-[#4a5e3a] mb-2">City</label>
                     <input type="text" value={formData.city} onChange={(e) => handleFormChange("city", e.target.value)}
-                      className="w-full bg-white/5 border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="Tempe" />
+                      className="w-full bg-white border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-[#9a9080] focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="Tempe" />
                   </div>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-[#4a5e3a] mb-2">State</label>
                     <input type="text" value={formData.state} onChange={(e) => handleFormChange("state", e.target.value)}
-                      className="w-full bg-white/5 border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="AZ" maxLength={2} />
+                      className="w-full bg-white border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-[#9a9080] focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="AZ" maxLength={2} />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-[#4a5e3a] mb-2">ZIP</label>
                     <input type="text" value={formData.zip} onChange={(e) => handleFormChange("zip", e.target.value)}
-                      className="w-full bg-white/5 border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="85281" />
+                      className="w-full bg-white border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base placeholder-[#9a9080] focus:outline-none focus:ring-2 focus:ring-[#449531]" placeholder="85281" />
                   </div>
                 </div>
               </>
@@ -620,7 +570,7 @@ export default function CheckoutPage() {
                 <label className="block text-sm font-semibold text-[#4a5e3a] mb-2">Date</label>
                 <input type="date" value={formData.pickupDate} onChange={(e) => handleFormChange("pickupDate", e.target.value)}
                   min={new Date().toISOString().split("T")[0]}
-                  className="w-full bg-white/5 border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base focus:outline-none focus:ring-2 focus:ring-[#449531]" />
+                  className="w-full bg-white border border-[#ddd8cc] rounded-xl px-4 py-3 text-[#1e2d18] text-base focus:outline-none focus:ring-2 focus:ring-[#449531]" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#4a5e3a] mb-3">Time Slot</label>
@@ -630,7 +580,7 @@ export default function CheckoutPage() {
                       className={`p-4 rounded-xl border-2 transition font-semibold ${
                         formData.timeSlot === slot
                           ? "border-[#75F663] bg-[#3d6b2a]/10 text-[#1e2d18]"
-                          : "border-[#ddd8cc] bg-white/5 text-[#4a5e3a] hover:border-[#ddd8cc]"
+                          : "border-[#ddd8cc] bg-white text-[#4a5e3a] hover:border-[#ddd8cc]"
                       }`}
                     >
                       {slot === "morning" ? "Morning (9am-12pm)" : slot === "afternoon" ? "Afternoon (12pm-3pm)" : "Evening (3pm-6pm)"}
@@ -648,7 +598,7 @@ export default function CheckoutPage() {
                 onClick={() => validateStep1() && setStep(2)}
                 disabled={!validateStep1()}
                 className={`flex-1 py-3 rounded-full font-bold flex items-center justify-center gap-2 transition min-h-[44px] ${
-                  validateStep1() ? "bg-[#3d6b2a] hover:bg-[#5aaa3c] text-white font-bold rounded-full transition-colors" : "bg-white/5 text-[#7a7060] cursor-not-allowed"
+                  validateStep1() ? "bg-[#3d6b2a] hover:bg-[#5aaa3c] text-white font-bold rounded-full transition-colors" : "bg-white text-[#7a7060] cursor-not-allowed"
                 }`}
               >
                 Continue <ChevronRight size={20} />
@@ -719,7 +669,7 @@ export default function CheckoutPage() {
             </div>
 
             {/* Coupon Input */}
-            <div className="rounded-2xl p-6 border border-[#ddd8cc] bg-white/5 backdrop-blur-md">
+            <div className="rounded-2xl p-6 border border-[#ddd8cc] bg-white backdrop-blur-md">
               <div className="space-y-4">
                 <div>
                   <h3 className="text-lg font-bold text-[#1e2d18] mb-1">Have a Coupon Code?</h3>
@@ -741,7 +691,7 @@ export default function CheckoutPage() {
                       </div>
                       <button
                         onClick={removeCoupon}
-                        className="px-4 py-2 text-sm font-semibold text-[#7a7060] hover:text-[#1e2d18] transition rounded-lg hover:bg-white/10"
+                        className="px-4 py-2 text-sm font-semibold text-[#7a7060] hover:text-[#1e2d18] transition rounded-lg hover:bg-[#f2efe8]"
                       >
                         Remove
                       </button>
@@ -759,7 +709,7 @@ export default function CheckoutPage() {
                         }}
                         onKeyDown={(e) => e.key === "Enter" && validateCoupon()}
                         placeholder="Enter coupon code"
-                        className="flex-1 bg-white/5 border border-[#ddd8cc] rounded-lg px-4 py-3 text-[#1e2d18] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#449531]"
+                        className="flex-1 bg-white border border-[#ddd8cc] rounded-lg px-4 py-3 text-[#1e2d18] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#449531]"
                         disabled={couponLoading}
                       />
                       <button
@@ -767,10 +717,10 @@ export default function CheckoutPage() {
                         disabled={couponLoading || !couponCode.trim()}
                         className={`px-6 py-3 rounded-lg font-semibold transition flex items-center gap-2 ${
                           couponLoading
-                            ? "bg-white/10 text-[#7a7060] cursor-not-allowed"
+                            ? "bg-[#f2efe8] text-[#7a7060] cursor-not-allowed"
                             : couponCode.trim()
                             ? "bg-[#3d6b2a] text-black hover:bg-[#3d6b2a]"
-                            : "bg-white/10 text-[#9a9080] cursor-not-allowed"
+                            : "bg-[#f2efe8] text-[#9a9080] cursor-not-allowed"
                         }`}
                       >
                         {couponLoading ? (
@@ -785,8 +735,8 @@ export default function CheckoutPage() {
                     </div>
 
                     {couponError && (
-                      <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3">
-                        <p className="text-red-400 text-sm">{couponError}</p>
+                      <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                        <p className="text-red-600 text-sm">{couponError}</p>
                       </div>
                     )}
                   </>
@@ -853,9 +803,9 @@ export default function CheckoutPage() {
             </div>
 
             {paymentError && (
-              <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
-                <p className="text-red-400 text-sm">{paymentError}</p>
-                <button onClick={createPaymentIntent} className="text-red-300 underline text-sm mt-2">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+                <p className="text-red-600 text-sm">{paymentError}</p>
+                <button onClick={createPaymentIntent} className="text-red-600 underline text-sm mt-2">
                   Try again
                 </button>
               </div>
@@ -867,32 +817,33 @@ export default function CheckoutPage() {
                 options={{
                   clientSecret,
                   appearance: {
-                    theme: "night",
+                    theme: "stripe",
                     variables: {
-                      colorPrimary: "#75F663",
-                      colorBackground: "#1a1a1a",
-                      colorText: "#ffffff",
-                      colorDanger: "#ef4444",
-                      fontFamily: "League Spartan, system-ui, sans-serif",
+                      colorPrimary: "#3d6b2a",
+                      colorBackground: "#ffffff",
+                      colorText: "#1e2d18",
+                      colorDanger: "#dc2626",
+                      fontFamily: "system-ui, -apple-system, sans-serif",
                       borderRadius: "12px",
                       spacingUnit: "4px",
                     },
                     rules: {
                       ".Input": {
-                        border: "1px solid rgba(255,255,255,0.1)",
+                        border: "1px solid #ddd8cc",
                         boxShadow: "none",
+                        backgroundColor: "#ffffff",
                       },
                       ".Input:focus": {
-                        border: "1px solid #449531",
-                        boxShadow: "0 0 0 1px #449531",
+                        border: "1px solid #3d6b2a",
+                        boxShadow: "0 0 0 1px #3d6b2a",
                       },
                       ".Tab": {
-                        border: "1px solid rgba(255,255,255,0.1)",
-                        backgroundColor: "rgba(255,255,255,0.05)",
+                        border: "1px solid #ddd8cc",
+                        backgroundColor: "#faf8f3",
                       },
                       ".Tab--selected": {
-                        border: "1px solid #75F663",
-                        backgroundColor: "rgba(117,246,99,0.1)",
+                        border: "1px solid #3d6b2a",
+                        backgroundColor: "#e9f0e4",
                       },
                     },
                   },
@@ -957,7 +908,7 @@ export default function CheckoutPage() {
               </div>
             </div>
 
-            <div className="bg-white border border-[#ddd8cc] rounded-2xl p-6 space-y-4 bg-[#3d6b2a]/5 border border-[#75F663]/20">
+            <div className="bg-[#e9f0e4] border border-[#3d6b2a]/20 rounded-2xl p-6 space-y-4">
               <p className="text-sm text-[#7a7060]">Your next order coupon</p>
               <div className="flex items-center justify-between gap-4">
                 <div>
@@ -966,7 +917,7 @@ export default function CheckoutPage() {
                 </div>
                 <button onClick={() => copyToClipboard("MADFRESH10")}
                   className={`px-4 py-2 rounded-lg font-semibold flex items-center gap-2 transition ${
-                    couponCopied ? "bg-[#3d6b2a] text-black" : "bg-white/10 hover:bg-white/20 text-[#1e2d18]"
+                    couponCopied ? "bg-[#3d6b2a] text-white" : "bg-[#f2efe8] hover:bg-[#e9f0e4] text-[#1e2d18]"
                   }`}>
                   <Copy size={16} /> {couponCopied ? "Copied!" : "Copy"}
                 </button>
@@ -986,7 +937,6 @@ export default function CheckoutPage() {
             </div>
           </div>
         )}
-      </div>
       </div>
     </main>
   );

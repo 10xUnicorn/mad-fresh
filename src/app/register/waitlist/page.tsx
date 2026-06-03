@@ -111,19 +111,7 @@ function WaitlistContent() {
   return (
     <main className="min-h-screen relative overflow-hidden flex flex-col">
       {/* === BACKGROUND === */}
-      <div className="fixed inset-0 bg-gradient-to-br from-[#faf8f3] via-[#f2efe8] to-[#0a1a0a]" />
-      <div className="fixed top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#449531]/15 rounded-full blur-[120px]" />
-      <div className="fixed bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-[#3d6b2a]/8 rounded-full blur-[140px]" />
-      <div className="fixed top-[40%] left-[50%] -translate-x-1/2 w-[400px] h-[400px] bg-[#449531]/6 rounded-full blur-[100px]" />
-
-      <div
-        className="fixed inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(117,246,99,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(117,246,99,0.3) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+      <div className="fixed inset-0 bg-[#faf8f3]" />
 
       {floatingFoods.map((food, i) => (
         <div
@@ -214,7 +202,7 @@ function WaitlistContent() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                   <a
                     href="https://madfresh.app"
-                    className="font-semibold px-8 py-3 rounded-full text-center bg-gradient-to-r from-[#449531] to-[#75F663] text-[#0a1f0a] hover:shadow-lg hover:shadow-[#449531]/25 transition-all"
+                    className="font-semibold px-8 py-3 rounded-full text-center bg-gradient-to-r from-[#449531] to-[#75F663] text-[#1e2d18] hover:shadow-lg hover:shadow-[#449531]/25 transition-all"
                   >
                     Visit MadFresh.app
                   </a>
@@ -257,7 +245,7 @@ function WaitlistContent() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full font-bold py-4 rounded-full text-lg disabled:opacity-50 transition-all bg-gradient-to-r from-[#449531] to-[#75F663] text-[#0a1f0a] hover:shadow-lg hover:shadow-[#449531]/25 active:scale-[0.99]"
+                  className="w-full font-bold py-4 rounded-full text-lg disabled:opacity-50 transition-all bg-gradient-to-r from-[#449531] to-[#75F663] text-[#1e2d18] hover:shadow-lg hover:shadow-[#449531]/25 active:scale-[0.99]"
                 >
                   {loading ? "Joining..." : "Join the Waitlist"}
                 </button>

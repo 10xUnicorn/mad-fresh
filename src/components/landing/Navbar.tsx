@@ -229,8 +229,37 @@ export default function Navbar() {
               </button>
             </div>
 
+            {/* Top CTAs — Login, Sign Up, Order */}
+            <div className="px-4 py-4 border-b border-[#ddd8cc] space-y-3">
+              <div className="flex gap-3">
+                <Link
+                  href="/login"
+                  onClick={() => setOpen(false)}
+                  className="flex-1 border border-[#ddd8cc] text-[#4a5e3a] px-4 py-3 rounded-full text-sm text-center font-medium min-h-[44px] flex items-center justify-center hover:bg-[#f2efe8] transition"
+                >
+                  <User size={15} className="mr-1.5" />
+                  Log In
+                </Link>
+                <Link
+                  href="/signup"
+                  onClick={() => setOpen(false)}
+                  className="flex-1 bg-[#e9f0e4] text-[#3d6b2a] px-4 py-3 rounded-full text-sm text-center font-bold min-h-[44px] flex items-center justify-center hover:bg-[#d9e8d4] transition"
+                >
+                  Sign Up
+                </Link>
+              </div>
+              <Link
+                href="/menu"
+                onClick={() => setOpen(false)}
+                className="w-full bg-[#3d6b2a] hover:bg-[#5aaa3c] text-white font-bold py-3.5 rounded-full text-center flex items-center justify-center gap-2 text-sm transition min-h-[48px]"
+              >
+                <ShoppingBag size={16} />
+                Order Meal Prep
+              </Link>
+            </div>
+
             {/* Nav sections */}
-            <nav className="flex-1 px-4 py-4">
+            <nav className="flex-1 px-4 py-4 overflow-y-auto">
               {NAV_ITEMS.map((item) => (
                 <div key={item.label} className="mb-4">
                   <p className="px-3 py-1 text-[10px] font-bold text-[#9a9080] uppercase tracking-[.1em]">
@@ -250,39 +279,15 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Bottom CTAs */}
-            <div className="px-4 py-5 border-t border-[#ddd8cc] space-y-3">
-              <Link
-                href="/menu"
-                onClick={() => setOpen(false)}
-                className="w-full bg-[#3d6b2a] hover:bg-[#5aaa3c] text-white font-bold py-3.5 rounded-full text-center flex items-center justify-center gap-2 text-sm transition min-h-[48px]"
-              >
-                <ShoppingBag size={16} />
-                Order Meal Prep
-              </Link>
+            {/* Bottom CTA */}
+            <div className="px-4 py-4 border-t border-[#ddd8cc]">
               <Link
                 href="/catering#quote"
                 onClick={() => setOpen(false)}
-                className="w-full bg-[#fff8ee] border border-[#f0ddb8] text-[#1e2d18] font-semibold py-3.5 rounded-full text-center flex items-center justify-center text-sm min-h-[48px]"
+                className="w-full bg-[#fff8ee] border border-[#f0ddb8] text-[#1e2d18] font-semibold py-3.5 rounded-full text-center flex items-center justify-center text-sm min-h-[48px] hover:bg-[#fff0dd] transition"
               >
                 Request Catering Quote
               </Link>
-              <div className="flex gap-3">
-                <Link
-                  href="/login"
-                  onClick={() => setOpen(false)}
-                  className="flex-1 border border-[#ddd8cc] text-[#4a5e3a] px-4 py-3 rounded-full text-sm text-center font-medium min-h-[44px] flex items-center justify-center"
-                >
-                  Log In
-                </Link>
-                <Link
-                  href="/signup"
-                  onClick={() => setOpen(false)}
-                  className="flex-1 bg-[#e9f0e4] text-[#3d6b2a] px-4 py-3 rounded-full text-sm text-center font-bold min-h-[44px] flex items-center justify-center"
-                >
-                  Sign Up
-                </Link>
-              </div>
             </div>
           </div>
         </div>

@@ -408,7 +408,10 @@ export default function MenuClient({ recipes }: MenuClientProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex gap-1 overflow-x-auto pb-0 scrollbar-hide -mx-1 px-1">
               <button
-                onClick={() => setSelectedCategory("all")}
+                onClick={() => {
+                  setSelectedCategory("all");
+                  categoryRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                }}
                 className={`px-4 py-3 text-sm font-semibold whitespace-nowrap border-b-2 transition-all ${
                   selectedCategory === "all"
                     ? "border-[#3d6b2a] text-[#3d6b2a]"
@@ -420,7 +423,10 @@ export default function MenuClient({ recipes }: MenuClientProps) {
               {availableCategories.map(cat => (
                 <button
                   key={cat}
-                  onClick={() => setSelectedCategory(cat)}
+                  onClick={() => {
+                    setSelectedCategory(cat);
+                    categoryRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                  }}
                   className={`px-4 py-3 text-sm font-semibold whitespace-nowrap border-b-2 transition-all flex items-center gap-1.5 ${
                     selectedCategory === cat
                       ? "border-[#3d6b2a] text-[#3d6b2a]"

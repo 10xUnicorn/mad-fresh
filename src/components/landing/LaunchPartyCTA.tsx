@@ -16,9 +16,9 @@ const floatingFoods = [
 
 export default function LaunchPartyCTA() {
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#0a1f0a] via-[#0d2b0d] to-[#0a1a0a]">
-      {/* Organic green glow spots */}
-      <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#449531]/15 rounded-full blur-[120px]" />
+    <section className="relative py-20 overflow-hidden bg-[#3d6b2a]">
+      {/* Subtle glow spot */}
+      <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#5aaa3c]/20 rounded-full blur-[120px]" />
       <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-[#3d6b2a]/8 rounded-full blur-[140px]" />
       <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[400px] h-[400px] bg-[#449531]/6 rounded-full blur-[100px]" />
 
@@ -107,7 +107,7 @@ export default function LaunchPartyCTA() {
           {/* CTA Button */}
           <Link
             href="/events/app-launch-party-2026"
-            className="inline-block font-bold py-4 px-8 sm:px-10 rounded-full text-lg transition-all bg-gradient-to-r from-[#449531] to-[#75F663] text-[#0a1f0a] hover:shadow-lg hover:shadow-[#449531]/25 active:scale-[0.99]"
+            className="inline-block font-bold py-4 px-8 sm:px-10 rounded-full text-lg transition-all bg-gradient-to-r from-[#449531] to-[#75F663] text-[#1e2d18] hover:shadow-lg hover:shadow-[#449531]/25 active:scale-[0.99]"
           >
             RSVP Free — Limited Spots
           </Link>
