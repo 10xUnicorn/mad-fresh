@@ -4,6 +4,8 @@ import CustomerShell from "@/components/customer/CustomerShell";
 import ComingSoonPage from "@/components/customer/ComingSoonPage";
 import ImpersonationBanner from "@/components/customer/ImpersonationBanner";
 
+export const dynamic = "force-dynamic";
+
 export default async function CustomerLayout({
   children,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
