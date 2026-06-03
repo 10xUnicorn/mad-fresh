@@ -55,5 +55,14 @@
 
 ### Known Limitations
 - Full Stripe Payment Sheet requires a dev build (not Expo Go) — checkout currently posts to `/api/checkout` and returns a client secret, but the native payment sheet UI needs `eas build --profile development`
+- Expo Go version mismatch with SDK 56 — use iOS Simulator (`npx expo start --ios`) or build a dev client
 - Push notification backend send is wired for token capture only — sending notifications requires a server-side integration (fast-follow)
 - Catering screen not yet built (lower priority, web-only for now)
+
+## Web App Fixes — 2026-06-03
+- Checkout page: fully restyled from dark gradient to Sage & Cream, Stripe Elements switched to light theme
+- Menu: fixed category tab scroll-back-to-top bug on mobile (added scrollIntoView)
+- Navbar mobile sidebar: login/signup/order moved to top of drawer
+- Full dark theme audit: removed dark gradients from register, events, waitlist, launch party CTA, admin loading/error
+- All layouts with Supabase now have `export const dynamic = "force-dynamic"` (required for Vercel builds)
+- Deployed to production: vercel --prod (commit a1e864c)
